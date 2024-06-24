@@ -1,13 +1,23 @@
 (() => {
     const $counter = document.getElementById("js-counter");
 
+    const $step = document.getElementById("js-step-num");
+
+    let setNum = 1;
+    $step.addEventListener("input", (e) => {
+        setNum = parseInt(e.currentTarget.textContent);
+    });
+
     const clickHandler = (e) => {
         const $targetButton = e.currentTarget;
         let currentCount = parseInt($counter.textContent);
+
+        console.log(setNum);
+
         if($targetButton.textContent === "+"){
-            $counter.textContent = currentCount + 1;
+            $counter.textContent = currentCount + setNum;
         } else {
-            $counter.textContent = currentCount - 1;
+            $counter.textContent = currentCount - setNum;
         }
     }
 
